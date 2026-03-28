@@ -542,9 +542,9 @@ hr {
   background-color: var(--color-bg-card);
   border: 2px solid var(--color-plum);
   border-radius: var(--radius-lg);
-  margin: var(--space-6) auto;
+  margin: var(--space-6) var(--space-4);
   max-width: var(--max-width);
-  padding: var(--space-12) var(--space-8);
+  padding: var(--space-12) var(--space-6);
   position: relative;
   overflow: hidden;
 }
@@ -612,7 +612,7 @@ hr {
   background-color: var(--color-gold);
   padding: var(--space-2) 0;
   text-align: center;
-  margin: 0 auto;
+  margin: 0 var(--space-4);
   max-width: var(--max-width);
 }
 
@@ -629,16 +629,16 @@ hr {
   height: 2px;
   background-color: var(--color-plum);
   max-width: var(--max-width);
-  margin: 0 auto;
+  margin: 0 var(--space-4);
 }
 
 .landing-hero {
   background-color: var(--color-bg-card);
   border: 2px solid var(--color-plum);
   border-radius: var(--radius-lg);
-  margin: var(--space-6) auto;
+  margin: var(--space-6) var(--space-4);
   max-width: var(--max-width);
-  padding: var(--space-20) var(--space-8);
+  padding: var(--space-20) var(--space-6);
   text-align: center;
 }
 
@@ -808,10 +808,10 @@ hr {
    ========================================================================== */
 
 .cta-block {
-  padding: var(--space-12) 0;
+  padding: var(--space-12) var(--space-6);
   text-align: center;
   border-radius: var(--radius-lg);
-  margin: var(--space-6) auto;
+  margin: var(--space-6) var(--space-4);
   max-width: var(--max-width);
 }
 
@@ -1211,8 +1211,9 @@ hr {
   background-color: var(--color-bg-sage);
   border-top: 2px solid var(--color-plum);
   padding: var(--space-10) var(--space-6);
-  margin: 0 auto;
+  margin: 0 var(--space-4);
   max-width: var(--max-width);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
 }
 
 .topic-grid__heading {
@@ -1291,7 +1292,7 @@ hr {
   border: 2px solid var(--color-gold);
   border-radius: var(--radius-lg);
   padding: var(--space-6);
-  margin: var(--space-6) auto;
+  margin: var(--space-6) var(--space-4);
   max-width: var(--max-width);
 }
 
@@ -1367,7 +1368,7 @@ hr {
   background-color: var(--color-plum);
   border-radius: var(--radius-lg);
   padding: var(--space-10) var(--space-6);
-  margin: var(--space-6) auto;
+  margin: var(--space-6) var(--space-4);
   max-width: var(--max-width);
 }
 
@@ -1627,6 +1628,18 @@ hr {
   .container {
     padding-left: var(--space-8);
     padding-right: var(--space-8);
+  }
+
+  .hero,
+  .hero-divider,
+  .hero-divider + .hero-divider-line,
+  .topic-grid,
+  .dark-posts,
+  .archive-strip,
+  .cta-block,
+  .landing-hero {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .grid--3 {
