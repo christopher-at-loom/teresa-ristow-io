@@ -73,6 +73,61 @@ You write HTML. Jekyll handles the plumbing.
 
 ---
 
+## Adding Images to Blog Posts
+
+### Hero images (the big image at the top of a post)
+
+You can add a featured image that automatically adapts between mobile (portrait) and desktop (landscape) views:
+
+1. **Prepare two versions** of your image:
+   - **Landscape** (horizontal) -- approximately 1200 x 675 pixels -- for desktop
+   - **Portrait** (vertical) -- approximately 600 x 800 pixels -- for mobile
+
+2. **Name them** following this pattern and place in `assets/images/`:
+   ```
+   post-your-slug-landscape.jpg
+   post-your-slug-portrait.jpg
+   ```
+   Example: `post-hiring-bias-landscape.jpg` and `post-hiring-bias-portrait.jpg`
+
+3. **Add these fields** to your post's frontmatter:
+   ```yaml
+   ---
+   layout: post
+   title: "Your Post Title"
+   date: 2026-04-15
+   author: "Teresa Ristow"
+   excerpt: "Brief summary for listings and social shares."
+   image_landscape: /assets/images/post-hiring-bias-landscape.jpg
+   image_portrait: /assets/images/post-hiring-bias-portrait.jpg
+   image_alt: "A chart showing structured interview validity compared to unstructured"
+   ---
+   ```
+
+All three image fields are optional. If you skip them, the post displays without a hero image (the same as before). You can also provide just one version if you don't need mobile/desktop switching.
+
+### Inline images (inside the post body)
+
+For images within the text (charts, diagrams, photos), use a simple `<img>` tag:
+
+```html
+<img
+  src="{{ '/assets/images/post-hiring-bias-chart.png' | relative_url }}"
+  alt="Bar chart comparing interview validity across four methods"
+  width="720"
+  height="405"
+  loading="lazy">
+```
+
+### Image tips
+
+- **Keep file size under 500KB** -- compress photos before uploading
+- **Always write alt text** -- describe what the image shows, not the filename
+- **Use .jpg for photos**, .png for screenshots and diagrams
+- **The site handles responsive behavior automatically** -- you just provide the images
+
+---
+
 ## How to Create a New Page
 
 1. **Create a new file** in `pages/` named in kebab-case:
@@ -190,6 +245,25 @@ Used in loops. Renders a preview card for one blog post:
 {% endfor %}
 ```
 
+#### Responsive Image
+Display an image that switches between portrait (mobile) and landscape (desktop):
+```html
+{% include responsive-image.html
+  landscape="/assets/images/hero-homepage-landscape.jpg"
+  portrait="/assets/images/hero-homepage-portrait.jpg"
+  alt="Description of the image"
+  loading="eager"
+%}
+```
+Parameters:
+- `landscape` -- path to the desktop (horizontal) image
+- `portrait` -- path to the mobile (vertical) image
+- `alt` -- description of the image (required)
+- `loading` -- "eager" (loads immediately) or "lazy" (loads when scrolled to, default)
+- `css_class` -- optional CSS class for styling
+
+You can provide just one of landscape/portrait if you don't need mobile/desktop switching.
+
 #### React Component Mount
 Add interactive components to a blog post:
 ```html
@@ -282,17 +356,20 @@ All styles live in `assets/css/style.css`. The file uses CSS custom properties (
 
 ```css
 :root {
-  --color-primary: #2D3E50;      /* Main text and headings */
-  --color-accent: #A65971;       /* CTA buttons */
-  --color-bg: #FFFFFF;           /* Page background */
-  --color-bg-warm: #F9F6F3;      /* Warm section backgrounds */
-  --color-bg-cool: #F5F7F6;      /* Cool section backgrounds */
-  --font-heading: 'Georgia', serif;
-  --font-body: -apple-system, sans-serif;
+  --color-plum: #2e1a2e;        /* Primary brand color */
+  --color-gold: #c9a833;        /* CTA buttons and accents */
+  --color-olive: #6b7a3a;       /* Secondary accent */
+  --color-terracotta: #c48a78;  /* Warm accent */
+  --color-bg-page: #f5f0e2;     /* Page background */
+  --color-bg-card: #faf7ee;     /* Card backgrounds */
+  --font-heading: "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
 }
 ```
 
 To change colors or fonts, edit these variables at the top of the file. The changes cascade throughout the entire site.
+
+**Responsive images:** When you provide both landscape and portrait versions of an image, the site automatically switches between them based on screen size. Desktop visitors see the landscape version, mobile visitors see the portrait version.
 
 ---
 

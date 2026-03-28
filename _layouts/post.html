@@ -13,6 +13,16 @@ layout: default
       {% endif %}
     </div>
   </header>
+  {% if page.image_landscape or page.image_portrait %}
+  <div class="post__hero-image">
+    {% include responsive-image.html
+      landscape=page.image_landscape
+      portrait=page.image_portrait
+      alt=page.image_alt
+      loading="eager"
+    %}
+  </div>
+  {% endif %}
   <div class="post__content">
     {{ content }}
   </div>

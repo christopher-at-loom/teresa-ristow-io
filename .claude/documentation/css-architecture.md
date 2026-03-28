@@ -1,6 +1,6 @@
 # CSS Architecture
 
-**File:** `assets/css/style.css` (single file, ~1035 lines)
+**File:** `assets/css/style.css` (single file, ~1710 lines)
 
 ## Table of Contents (mirrors file sections)
 
@@ -29,33 +29,41 @@
 
 | Token | Value | Purpose |
 |-------|-------|---------|
-| `--color-primary` | `#2D3E50` | Headings, header text, dark backgrounds |
-| `--color-cta` | `#A65971` | CTA buttons only (not body text) |
-| `--color-cta-hover` | `#8f4c62` | CTA button hover state |
-| `--color-bg-warm` | `#F9F6F3` | Warm background sections |
-| `--color-bg-cool` | `#F5F7F6` | Cool background sections, code bg |
-| `--color-white` | `#ffffff` | Page background |
-| `--color-text` | `#2D3E50` | Body text (same as primary) |
-| `--color-text-light` | `#5A6B7A` | Secondary text, meta, captions |
-| `--color-border` | `#E2E6EA` | Borders, dividers |
-| `--color-black` | `#1a1a1a` | Reserved |
+| `--color-plum` | `#2e1a2e` | Primary brand color |
+| `--color-gold` | `#c9a833` | CTA buttons and accents |
+| `--color-olive` | `#6b7a3a` | Secondary accent |
+| `--color-terracotta` | `#c48a78` | Warm accent |
+| `--color-purple-muted` | `#9888a8` | Muted accent |
+| `--color-bg-page` | `#f5f0e2` | Page background |
+| `--color-bg-card` | `#faf7ee` | Card backgrounds |
+| `--color-bg-sage` | `#e8ecda` | Sage section backgrounds |
+| `--color-bg-gold-tint` | `#ede3b8` | Gold tint backgrounds |
+| `--color-bg-blush` | `#f3e6e0` | Blush backgrounds |
+| `--color-white` | `#ffffff` | White |
+| `--color-text-heading` | `#1a1418` | Heading text |
+| `--color-text-body` | `#4a4240` | Body text |
+| `--color-text-muted` | `#8a8280` | Secondary/muted text |
+| `--color-text-on-dark` | `#ffffff` | Text on dark backgrounds |
+| `--color-border` | `rgba(46, 26, 46, 0.18)` | Borders, dividers |
+| `--color-border-strong` | `rgba(46, 26, 46, 0.3)` | Strong borders |
 
-**Constraint:** `#A65971` is CTA-only. Never use for body text or decorative elements. White text on `#A65971` passes WCAG AA.
+Legacy aliases (`--color-primary`, `--color-cta`, etc.) map to new tokens for backward compatibility.
 
 ### Typography
 
 | Token | Value | Purpose |
 |-------|-------|---------|
-| `--font-heading` | `Georgia, "Times New Roman", serif` | All headings (h1-h6) |
-| `--font-body` | `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif` | Body text |
+| `--font-heading` | `"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif` | All headings (h1-h6) |
+| `--font-body` | `"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif` | Body text |
 | `--font-mono` | `"SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace` | Code blocks |
 
 ### Font Size Scale
 
 | Token | Value |
 |-------|-------|
-| `--text-xs` | `0.75rem` |
-| `--text-sm` | `0.875rem` |
+| `--text-2xs` | `0.5625rem` |
+| `--text-xs` | `0.6875rem` |
+| `--text-sm` | `0.8125rem` |
 | `--text-base` | `1rem` |
 | `--text-lg` | `1.125rem` |
 | `--text-xl` | `1.25rem` |
@@ -85,7 +93,7 @@
 
 | Token | Value | Purpose |
 |-------|-------|---------|
-| `--max-width` | `1200px` | `.container` default |
+| `--max-width` | `1392px` | `.container` default |
 | `--max-width-content` | `720px` | `.container--narrow`, post/page content |
 | `--max-width-wide` | `960px` | `.container--wide` |
 
@@ -94,17 +102,18 @@
 | Token | Value |
 |-------|-------|
 | `--radius-sm` | `4px` |
-| `--radius-md` | `8px` |
-| `--radius-lg` | `12px` |
-| `--shadow-sm` | `0 1px 3px rgba(0,0,0,0.08)` |
-| `--shadow-md` | `0 4px 12px rgba(0,0,0,0.1)` |
-| `--shadow-lg` | `0 8px 24px rgba(0,0,0,0.12)` |
+| `--radius-md` | `12px` |
+| `--radius-lg` | `20px` |
+| `--radius-pill` | `9999px` |
+| `--shadow-sm` | `0 1px 3px rgba(46, 26, 46, 0.06)` |
+| `--shadow-md` | `0 4px 12px rgba(46, 26, 46, 0.08)` |
+| `--shadow-lg` | `0 8px 24px rgba(46, 26, 46, 0.1)` |
 | `--transition-fast` | `150ms ease` |
 | `--transition-base` | `250ms ease` |
 
 ## Layout System
 
-- `.container` -- max-width 1200px, auto margins, horizontal padding
+- `.container` -- max-width 1392px, auto margins, horizontal padding
 - `.container--narrow` -- max-width 720px (for content)
 - `.container--wide` -- max-width 960px
 - `.grid` -- CSS Grid with `--space-6` gap
@@ -119,7 +128,7 @@
 | `.site-header` | `__title`, `__toggle`, `__toggle-bar` | `[aria-expanded="true"]` |
 | `.site-nav` | `__list`, `__item`, `__link` | `--open`, `__link--active` |
 | `.site-footer` | `__content`, `__copyright` | - |
-| `.post` | `__header`, `__title`, `__meta`, `__date`, `__author`, `__content` | - |
+| `.post` | `__header`, `__title`, `__meta`, `__date`, `__author`, `__content`, `__hero-image` | - |
 | `.post-card` | `__title`, `__date`, `__excerpt`, `__link` | - |
 | `.page` | `__header`, `__title`, `__content` | - |
 | `.course-card` | `__header`, `__title`, `__subtitle`, `__description`, `__features`, `__footer`, `__price` | - |
@@ -147,13 +156,13 @@
 ## Accessibility Features
 
 - `.skip-nav` -- visually hidden until focused, jumps to `#main-content`
-- `:focus-visible` -- 2px solid `--color-cta` outline with 2px offset
+- `:focus-visible` -- 2px solid `--color-gold` outline with 2px offset
 - `:focus:not(:focus-visible)` -- removes outline for mouse users
 - `@media (prefers-reduced-motion: reduce)` -- kills all animations/transitions, removes hover transforms
 
 ## Scaling Strategy
 
 - Section markers as CSS comments (`/* ======= N. Section Name ======= */`)
-- Current size: ~1035 lines
-- Threshold: ~1500 lines triggers split to SASS `@import` partials
+- Current size: ~1710 lines
+- Threshold: ~2000 lines triggers split to SASS `@import` partials
 - When splitting: one partial per section, `_sass/` directory, `style.scss` as entry point

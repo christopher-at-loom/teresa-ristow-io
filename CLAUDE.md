@@ -94,6 +94,7 @@ All layouts extend default. Default provides: doctype, `<html lang="en">`, head 
 | course-card.html | course (object) | `{% include course-card.html course=course %}` |
 | post-card.html | post (object) | `{% include post-card.html post=post %}` |
 | react-mount.html | (none) | `{% include react-mount.html %}` -- add before [data-component] divs |
+| responsive-image.html | landscape, portrait, alt, loading (default: lazy), css_class, width_l, height_l, width_p, height_p | `{% include responsive-image.html landscape="/assets/images/hero-landscape.jpg" portrait="/assets/images/hero-portrait.jpg" alt="Description" loading="eager" %}` |
 | analytics.html | (none) | Placeholder for tracking code |
 
 ## CSS Architecture
@@ -106,6 +107,39 @@ Single file: `assets/css/style.css`
 - Mobile-first responsive (breakpoints: 600px, 768px, 1024px)
 - Section markers as CSS comments
 - Scaling strategy: split to SASS @import if file exceeds ~1500 lines
+
+## Responsive Image Rules
+
+When generating HTML that includes images, follow these rules:
+
+1. **Hero and header images** use the `responsive-image.html` include with both `landscape` and `portrait` versions for art-directed mobile/desktop switching
+2. **Inline blog images** (charts, diagrams, screenshots) use a plain `<img>` tag -- no `<picture>` needed
+3. **File naming:** `{context}-{slug}-{orientation}.{ext}` where context is `hero`/`post`/`course`/`page`, orientation is `landscape` (16:9, ~1200x675) or `portrait` (3:4, ~600x800). Omit orientation suffix for inline-only images.
+4. **Loading:** `eager` for above-fold images, `lazy` (default) for everything else
+5. **Alt text is mandatory** -- describe the content, not the filename
+6. **Width and height attributes are mandatory** on all `<img>` tags to prevent layout shift
+7. **Only use `<picture>`** (via the include) when genuinely art-directing different crops for mobile vs desktop
+
+### Post hero images via frontmatter
+
+```yaml
+image_landscape: /assets/images/post-my-slug-landscape.jpg
+image_portrait: /assets/images/post-my-slug-portrait.jpg
+image_alt: "Descriptive alt text"
+```
+
+All three fields are optional. The post layout renders a `<picture>` element with art direction when both orientations are provided.
+
+### Inline images in blog posts
+
+```html
+<img
+  src="{{ '/assets/images/post-slug-chart.png' | relative_url }}"
+  alt="Bar chart comparing interview validity across methods"
+  width="720"
+  height="405"
+  loading="lazy">
+```
 
 ## JS Architecture
 
@@ -136,6 +170,7 @@ Fields: platform, url, label
 | CSS classes | BEM-influenced | .post__title, .cta-block--primary |
 | Data files | kebab-case.yml | courses.yml |
 | JS files | kebab-case.js | sample-chart.js |
+| Images | {context}-{slug}-{orientation}.{ext} | post-hiring-bias-landscape.jpg |
 | Documentation | kebab-case.md | css-architecture.md |
 
 ## Key Constraints
@@ -157,6 +192,7 @@ Fields: platform, url, label
 | Custom JSON-LD via include | jekyll-seo-tag only does WebSite/WebPage; need Course, Person, BlogPosting | Active |
 | _data/courses.yml as SSOT | Course metadata centralized; rendered by multiple pages and includes | Active |
 | README.md as admin guide | Dr. Ristow is site admin; must be human-readable with SOPs | Active |
+| Responsive images via `<picture>` art direction | `srcset` multi-resolution requires build pipeline we don't have; `<picture>` gives mobile/desktop art direction with zero tooling | Active |
 
 ## Active Risks
 

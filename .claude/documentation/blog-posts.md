@@ -40,6 +40,9 @@ author: "Teresa Ristow"
 | `categories` | list | Post categories (affects URL if permalink uses `:categories`) |
 | `tags` | list | Post tags for filtering/display |
 | `image` | string | Featured image path (used by jekyll-seo-tag for OG image) |
+| `image_landscape` | string | Path to landscape (desktop) hero image, e.g. `/assets/images/post-slug-landscape.jpg` |
+| `image_portrait` | string | Path to portrait (mobile) hero image, e.g. `/assets/images/post-slug-portrait.jpg` |
+| `image_alt` | string | Alt text for the hero image (required if either image field is set) |
 
 ## Content Format
 
@@ -65,6 +68,42 @@ excerpt: "A brief description for previews and meta tags."
 ```
 
 Content area styles (lists, headings, images) are scoped to `.post__content` in the CSS.
+
+## Hero Images
+
+Posts can have an optional hero image that appears between the header and content. The image automatically switches between portrait (mobile) and landscape (desktop) when both versions are provided.
+
+### Frontmatter
+
+```yaml
+image_landscape: /assets/images/post-my-slug-landscape.jpg
+image_portrait: /assets/images/post-my-slug-portrait.jpg
+image_alt: "Descriptive alt text for the image"
+```
+
+All three fields are optional. The post layout uses the `responsive-image.html` include to render a `<picture>` element with art direction.
+
+### File naming convention
+
+```
+assets/images/post-{slug}-landscape.{ext}   (16:9, ~1200x675)
+assets/images/post-{slug}-portrait.{ext}    (3:4, ~600x800)
+```
+
+### Inline images
+
+For images within the post body (charts, diagrams), use a plain `<img>` tag:
+
+```html
+<img
+  src="{{ '/assets/images/post-slug-chart.png' | relative_url }}"
+  alt="Bar chart comparing interview validity"
+  width="720"
+  height="405"
+  loading="lazy">
+```
+
+Always include `alt`, `width`, `height`, and `loading="lazy"` attributes.
 
 ## Embedding React Components
 
@@ -128,7 +167,9 @@ Drafts are not published to the live site. To preview locally, run `jekyll serve
 
 1. Create file: `_posts/YYYY-MM-DD-slug.html`
 2. Add frontmatter: `title`, `date`, `excerpt` (recommended)
-3. Write HTML content
-4. If using React components: add `{% include react-mount.html %}` before component divs
-5. Verify: post appears on `/blog/` page and homepage (if among latest 3)
-6. No em-dashes in content (workspace constraint)
+3. Optionally add hero image frontmatter: `image_landscape`, `image_portrait`, `image_alt`
+4. Write HTML content
+5. For inline images: use `<img>` with `alt`, `width`, `height`, and `loading="lazy"`
+6. If using React components: add `{% include react-mount.html %}` before component divs
+7. Verify: post appears on `/blog/` page and homepage (if among latest 3)
+8. No em-dashes in content (workspace constraint)

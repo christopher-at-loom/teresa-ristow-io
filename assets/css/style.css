@@ -69,6 +69,7 @@
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
 
   /* Font Sizes */
+  --text-2xs: 0.5625rem;
   --text-xs: 0.6875rem;
   --text-sm: 0.8125rem;
   --text-base: 1rem;
@@ -151,6 +152,13 @@ svg {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+/* Responsive image fills */
+.hero__image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 input,
@@ -604,7 +612,10 @@ hr {
 }
 
 .hero__visual {
-  display: none;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  margin-top: var(--space-6);
 }
 
 /* Hero divider bar */
@@ -617,7 +628,7 @@ hr {
 }
 
 .hero-divider__text {
-  font-size: 0.625rem;
+  font-size: var(--text-xs);
   font-weight: 500;
   color: var(--color-plum);
   letter-spacing: 1.2px;
@@ -630,6 +641,74 @@ hr {
   background-color: var(--color-plum);
   max-width: var(--max-width);
   margin: 0 var(--space-4);
+}
+
+/* Hero sub-columns (tagline + description row) */
+.hero__columns {
+  display: flex;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-6);
+}
+
+.hero__column {
+  max-width: 320px;
+}
+
+.hero__column p {
+  font-size: var(--text-sm);
+  color: var(--color-text-body);
+  line-height: 1.7;
+  margin-bottom: var(--space-3);
+}
+
+.hero__column a {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-plum);
+  text-decoration: none;
+}
+
+.hero__columns .hero__tagline {
+  margin-bottom: 0;
+}
+
+.intro-divider {
+  width: 1px;
+  background: var(--color-border);
+  align-self: stretch;
+  display: none;
+}
+
+/* Intro section (What I Write About / My Approach) */
+.intro-section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-10) var(--space-8);
+}
+
+.intro-section__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-12);
+}
+
+.intro-section__col {
+  flex: 1;
+  min-width: 280px;
+}
+
+.intro-section__heading {
+  font-size: var(--text-2xl);
+  font-weight: 300;
+  color: var(--color-plum);
+  margin-bottom: var(--space-3);
+}
+
+.intro-section__text {
+  font-size: var(--text-sm);
+  color: var(--color-text-body);
+  line-height: 1.7;
 }
 
 .landing-hero {
@@ -868,6 +947,18 @@ hr {
   padding: var(--space-8) var(--space-4);
 }
 
+.post__hero-image {
+  margin-bottom: var(--space-6);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.post__hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .post__header {
   margin-bottom: var(--space-8);
   padding-bottom: var(--space-6);
@@ -989,7 +1080,7 @@ hr {
 .badge {
   display: inline-block;
   padding: var(--space-1) var(--space-3);
-  font-size: 0.5rem;
+  font-size: var(--text-2xs);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -1249,7 +1340,7 @@ hr {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
+  font-size: var(--text-xl);
 }
 
 .topic-card__icon--blush { background-color: var(--color-bg-blush); }
@@ -1276,7 +1367,7 @@ hr {
 }
 
 .topic-card__tags {
-  font-size: 0.5625rem;
+  font-size: var(--text-2xs);
   font-weight: 500;
   color: var(--color-olive);
   text-transform: uppercase;
@@ -1297,7 +1388,7 @@ hr {
 }
 
 .archive-strip__label {
-  font-size: 0.5625rem;
+  font-size: var(--text-2xs);
   font-weight: 500;
   color: var(--color-text-muted);
   letter-spacing: 0.9px;
@@ -1344,7 +1435,7 @@ hr {
 }
 
 .archive-item__tag {
-  font-size: 0.5625rem;
+  font-size: var(--text-2xs);
   font-weight: 500;
   letter-spacing: 0.54px;
   text-transform: uppercase;
@@ -1355,7 +1446,7 @@ hr {
 .archive-item__tag--purple { color: var(--color-purple-muted); }
 
 .archive-item__arrow {
-  font-size: 1.125rem;
+  font-size: var(--text-lg);
   color: var(--color-plum);
   opacity: 0.3;
 }
@@ -1373,7 +1464,7 @@ hr {
 }
 
 .dark-posts__label {
-  font-size: 0.5625rem;
+  font-size: var(--text-2xs);
   font-weight: 500;
   color: var(--color-gold);
   letter-spacing: 0.9px;
@@ -1416,7 +1507,8 @@ hr {
 }
 
 .featured-card__image {
-  height: 200px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1428,7 +1520,7 @@ hr {
 .featured-card__image--terracotta { background-color: var(--color-terracotta); }
 
 .featured-card__image-text {
-  font-size: 1.75rem;
+  font-size: var(--text-3xl);
   font-weight: 300;
   color: rgba(255, 255, 255, 0.5);
 }
@@ -1439,7 +1531,7 @@ hr {
   right: var(--space-3);
   background-color: var(--color-gold);
   color: var(--color-plum);
-  font-size: 0.5rem;
+  font-size: var(--text-2xs);
   font-weight: 700;
   padding: var(--space-1) var(--space-3);
   border-radius: var(--radius-pill);
@@ -1450,7 +1542,7 @@ hr {
 }
 
 .featured-card__tag {
-  font-size: 0.5625rem;
+  font-size: var(--text-2xs);
   font-weight: 500;
   letter-spacing: 0.72px;
   text-transform: uppercase;
@@ -1592,7 +1684,7 @@ hr {
   }
 
   .intro-divider {
-    display: block !important;
+    display: block;
   }
 
   .site-footer__content {
@@ -1678,13 +1770,8 @@ hr {
 
   .hero__visual {
     flex: 0 0 360px;
-    height: 240px;
-    background-color: var(--color-olive);
-    border: 2px solid var(--color-plum);
-    border-radius: var(--radius-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    aspect-ratio: 3 / 2;
+    margin-top: 0;
   }
 
   .hero__visual-placeholder {

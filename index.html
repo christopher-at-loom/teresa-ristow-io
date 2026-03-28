@@ -11,16 +11,22 @@ title: Home
       elevating how we
       <span class="highlight--blush">understand work.</span>
     </h1>
-    <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
-      <p class="hero__tagline" style="margin-bottom: 0; max-width: 320px;">I research how organizations listen to their people — through AI, feedback systems, and applied psychology. This blog is where I share what I'm learning.</p>
-      <div style="max-width: 320px;">
-        <p style="font-size: 0.8125rem; color: #4a4240; line-height: 1.7; margin-bottom: 0.75rem;">Each post makes complex methods approachable — visual frameworks, data walkthroughs, and thinking-out-loud.</p>
-        <a href="{{ '/about/' | relative_url }}" style="font-size: 0.8125rem; font-weight: 500; color: #2e1a2e; text-decoration: none;">Learn More &rarr;</a>
+    <div class="hero__columns">
+      <p class="hero__tagline">I research how organizations listen to their people — through AI, feedback systems, and applied psychology. This blog is where I share what I'm learning.</p>
+      <div class="hero__column">
+        <p>Each post makes complex methods approachable — visual frameworks, data walkthroughs, and thinking-out-loud.</p>
+        <a href="{{ '/about/' | relative_url }}">Learn More &rarr;</a>
       </div>
     </div>
   </div>
   <div class="hero__visual">
-    <span class="hero__visual-placeholder">[ featured image ]</span>
+    {% include responsive-image.html
+      landscape="/assets/images/hero-homepage-landscape.jpg"
+      portrait="/assets/images/hero-homepage-portrait.jpg"
+      alt="Teresa Ristow presenting research findings"
+      loading="eager"
+      css_class="hero__image"
+    %}
   </div>
 </section>
 
@@ -31,16 +37,16 @@ title: Home
 <div class="hero-divider-line"></div>
 
 <!-- What I Write About / My Approach -->
-<section style="max-width: 1392px; margin: 0 auto; padding: 2.5rem 2rem;">
-  <div style="display: flex; flex-wrap: wrap; gap: 3rem;">
-    <div style="flex: 1; min-width: 280px;">
-      <h2 style="font-size: 1.625rem; font-weight: 300; color: #2e1a2e; margin-bottom: 0.75rem;">What I Write About</h2>
-      <p style="font-size: 0.8125rem; color: #4a4240; line-height: 1.7;">Practical, visual thinking on the topics I work in every day — how organizations listen to people, how AI can help, and the frameworks that bridge research and practice.</p>
+<section class="intro-section">
+  <div class="intro-section__grid">
+    <div class="intro-section__col">
+      <h2 class="intro-section__heading">What I Write About</h2>
+      <p class="intro-section__text">Practical, visual thinking on the topics I work in every day — how organizations listen to people, how AI can help, and the frameworks that bridge research and practice.</p>
     </div>
-    <div style="width: 1px; background: rgba(46,26,46,0.15); align-self: stretch; display: none;" class="intro-divider"></div>
-    <div style="flex: 1; min-width: 280px;">
-      <h2 style="font-size: 1.625rem; font-weight: 300; color: #2e1a2e; margin-bottom: 0.75rem;">My Approach</h2>
-      <p style="font-size: 0.8125rem; color: #4a4240; line-height: 1.7;">I believe the best insights come from combining rigorous methods with clear visual storytelling. If I can't draw it, I probably don't understand it well enough yet.</p>
+    <div class="intro-divider"></div>
+    <div class="intro-section__col">
+      <h2 class="intro-section__heading">My Approach</h2>
+      <p class="intro-section__text">I believe the best insights come from combining rigorous methods with clear visual storytelling. If I can't draw it, I probably don't understand it well enough yet.</p>
     </div>
   </div>
 </section>

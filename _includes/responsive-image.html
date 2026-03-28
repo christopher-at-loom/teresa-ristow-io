@@ -1,0 +1,28 @@
+{% if include.landscape and include.portrait %}
+<picture>
+  <source media="(min-width: 768px)" srcset="{{ include.landscape | relative_url }}">
+  <img
+    src="{{ include.portrait | relative_url }}"
+    alt="{{ include.alt }}"
+    width="{{ include.width_p | default: 600 }}"
+    height="{{ include.height_p | default: 800 }}"
+    loading="{{ include.loading | default: 'lazy' }}"
+    {% if include.css_class %}class="{{ include.css_class }}"{% endif %}>
+</picture>
+{% elsif include.landscape %}
+<img
+  src="{{ include.landscape | relative_url }}"
+  alt="{{ include.alt }}"
+  width="{{ include.width_l | default: 1200 }}"
+  height="{{ include.height_l | default: 675 }}"
+  loading="{{ include.loading | default: 'lazy' }}"
+  {% if include.css_class %}class="{{ include.css_class }}"{% endif %}>
+{% elsif include.portrait %}
+<img
+  src="{{ include.portrait | relative_url }}"
+  alt="{{ include.alt }}"
+  width="{{ include.width_p | default: 600 }}"
+  height="{{ include.height_p | default: 800 }}"
+  loading="{{ include.loading | default: 'lazy' }}"
+  {% if include.css_class %}class="{{ include.css_class }}"{% endif %}>
+{% endif %}
