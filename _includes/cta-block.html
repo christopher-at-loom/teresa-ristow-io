@@ -1,0 +1,15 @@
+<div class="cta-block cta-block--{{ include.style | default: 'primary' }}">
+  <div class="container">
+    {% if include.headline %}
+      <h2 class="cta-block__headline">{{ include.headline }}</h2>
+    {% endif %}
+    {% if include.description %}
+      <p class="cta-block__description">{{ include.description }}</p>
+    {% endif %}
+    {% if include.button_text %}
+      <a href="{{ include.button_url | relative_url }}" class="btn btn--{{ include.style | default: 'primary' }}">
+        {{ include.button_text }}
+      </a>
+    {% endif %}
+  </div>
+</div>

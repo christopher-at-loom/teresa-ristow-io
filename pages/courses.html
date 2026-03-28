@@ -1,0 +1,33 @@
+---
+layout: page
+title: Courses
+permalink: /courses/
+---
+
+<p class="courses-intro">Evidence-based courses grounded in I/O psychology research. Each course translates peer-reviewed findings into practical frameworks you can apply in your work.</p>
+
+{% if site.data.courses %}
+<section class="courses-vertical">
+  <h2>For Employers and HR Professionals</h2>
+  <div class="course-grid">
+    {% for course in site.data.courses %}
+      {% if course.vertical == "employer" %}
+        {% include course-card.html course=course %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="courses-vertical">
+  <h2>For Job Seekers and Career Coaches</h2>
+  <div class="course-grid">
+    {% for course in site.data.courses %}
+      {% if course.vertical == "job-seeker" %}
+        {% include course-card.html course=course %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+{% else %}
+<p>Course catalog is being updated. Please check back soon.</p>
+{% endif %}

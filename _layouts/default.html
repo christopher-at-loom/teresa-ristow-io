@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include head.html %}
+</head>
+<body class="{{ page.body_class }}">
+  {% include header.html %}
+  <main id="main-content" class="site-main">
+    {{ content }}
+  </main>
+  {% include footer.html %}
+  {% include json-ld.html %}
+  <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+</body>
+</html>

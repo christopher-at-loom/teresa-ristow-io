@@ -1,0 +1,11 @@
+main:
+  - title: Home
+    url: /
+  - title: About
+    url: /about/
+  - title: Courses
+    url: /courses/
+  - title: Blog
+    url: /blog/
+  - title: Contact
+    url: /contact/

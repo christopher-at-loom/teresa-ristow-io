@@ -1,0 +1,25 @@
+<div class="course-card">
+  <div class="course-card__header">
+    <h3 class="course-card__title">{{ include.course.title }}</h3>
+    <span class="badge badge--{{ include.course.status }}">{{ include.course.status | replace: '-', ' ' }}</span>
+  </div>
+  {% if include.course.subtitle %}
+    <p class="course-card__subtitle">{{ include.course.subtitle }}</p>
+  {% endif %}
+  <p class="course-card__description">{{ include.course.description }}</p>
+  {% if include.course.features %}
+    <ul class="course-card__features">
+      {% for feature in include.course.features %}
+        <li>{{ feature }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  <div class="course-card__footer">
+    <span class="course-card__price">{{ include.course.price_display }}</span>
+    {% if include.course.status == 'active' and include.course.kajabi_url != '' %}
+      <a href="{{ include.course.kajabi_url }}" class="btn btn--primary">Enroll Now</a>
+    {% elsif include.course.landing_page != '' %}
+      <a href="{{ include.course.landing_page | relative_url }}" class="btn btn--secondary">Learn More</a>
+    {% endif %}
+  </div>
+</div>

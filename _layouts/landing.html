@@ -1,0 +1,22 @@
+---
+layout: default
+body_class: landing-page
+---
+<div class="landing">
+  {% if page.hero_headline %}
+  <section class="landing-hero">
+    <div class="container">
+      <h1 class="landing-hero__headline">{{ page.hero_headline }}</h1>
+      {% if page.hero_subheadline %}
+        <p class="landing-hero__subheadline">{{ page.hero_subheadline }}</p>
+      {% endif %}
+      {% if page.hero_cta_text %}
+        <a href="{{ page.hero_cta_url }}" class="btn btn--primary">{{ page.hero_cta_text }}</a>
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
+  <div class="landing__content">
+    {{ content }}
+  </div>
+</div>

@@ -1,0 +1,7 @@
+- platform: linkedin
+  url: https://linkedin.com/in/teresaristow
+  label: LinkedIn
+
+- platform: twitter
+  url: https://twitter.com/teresaristow
+  label: Twitter

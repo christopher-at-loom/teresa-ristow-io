@@ -1,0 +1,30 @@
+---
+layout: page
+title: Contact
+permalink: /contact/
+---
+
+<section class="contact-info">
+  <h2>Get in Touch</h2>
+  <p>For professional inquiries, course questions, speaking requests, or research collaboration opportunities, please reach out by email.</p>
+
+  <dl class="contact-details">
+    <dt>Email</dt>
+    <dd><a href="mailto:teresa@example.com">teresa@example.com</a></dd>
+  </dl>
+</section>
+
+{% if site.data.social %}
+<section class="contact-social">
+  <h2>Find Me Online</h2>
+  <ul class="social-links">
+    {% for link in site.data.social %}
+      <li><a href="{{ link.url }}" rel="noopener noreferrer" target="_blank">{{ link.platform }}</a></li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+<section class="contact-note">
+  <p>Please note: I am not currently accepting new consulting engagements. For course-related questions, check the <a href="{{ '/courses/' | relative_url }}">course catalog</a> for details on availability and enrollment.</p>
+</section>

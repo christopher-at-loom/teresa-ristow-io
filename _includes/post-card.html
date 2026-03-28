@@ -1,0 +1,12 @@
+<article class="post-card">
+  <h3 class="post-card__title">
+    <a href="{{ include.post.url | relative_url }}">{{ include.post.title }}</a>
+  </h3>
+  <time class="post-card__date" datetime="{{ include.post.date | date_to_xmlschema }}">
+    {{ include.post.date | date: "%B %-d, %Y" }}
+  </time>
+  {% if include.post.excerpt %}
+    <p class="post-card__excerpt">{{ include.post.excerpt | strip_html | truncatewords: 30 }}</p>
+  {% endif %}
+  <a href="{{ include.post.url | relative_url }}" class="post-card__link">Read more</a>
+</article>

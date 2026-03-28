@@ -1,1 +1,33 @@
-theme: minima
+title: "Teresa Ristow"
+description: "I/O Psychology researcher and educator. Evidence-based courses for HR professionals, people managers, and job seekers."
+url: "https://christopher-at-loom.github.io"
+baseurl: "/skills-github-pages"
+author:
+  name: "Teresa Ristow"
+  bio: "PhD in I/O Psychology from Virginia Tech. Researcher, educator, and course creator."
+markdown: kramdown
+permalink: /blog/:year/:month/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+twitter:
+  card: summary_large_image
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      author: "Teresa Ristow"
+  - scope:
+      path: "pages"
+    values:
+      layout: page
+
+og_image: /assets/images/og-default.jpg
+
+exclude: [README.md, LICENSE, CLAUDE.md, .claude, "*.code-workspace"]

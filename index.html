@@ -1,0 +1,39 @@
+---
+layout: default
+title: Home
+---
+
+<section class="hero">
+  <div class="hero__content">
+    <h1 class="hero__headline">Evidence-Based Workplace Psychology</h1>
+    <p class="hero__tagline">Research-backed courses and resources for HR professionals, people managers, and job seekers. Translating I/O psychology science into practical tools you can use today.</p>
+    <a href="{{ '/courses/' | relative_url }}" class="hero__cta btn btn--primary">Explore Courses</a>
+  </div>
+</section>
+
+<section class="section section--recent-posts">
+  <h2 class="section__heading">Recent Posts</h2>
+  <div class="post-grid">
+    {% for post in site.posts limit:3 %}
+      {% include post-card.html post=post %}
+    {% endfor %}
+  </div>
+  {% if site.posts.size > 3 %}
+    <p class="section__more"><a href="{{ '/blog/' | relative_url }}">View all posts</a></p>
+  {% endif %}
+</section>
+
+{% if site.data.courses %}
+<section class="section section--courses">
+  <h2 class="section__heading">Courses</h2>
+  <div class="course-grid">
+    {% for course in site.data.courses %}
+      {% unless course.status == "future" %}
+        {% include course-card.html course=course %}
+      {% endunless %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% include cta-block.html headline="Ready to put research into practice?" description="Browse evidence-based courses designed for HR professionals, hiring managers, and job seekers." button_text="View All Courses" button_url="/courses/" style="primary" %}

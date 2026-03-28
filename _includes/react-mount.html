@@ -1,0 +1,19 @@
+{% unless page.react_loaded %}
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin="anonymous" defer></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin="anonymous" defer></script>
+<script defer>
+  window.addEventListener('DOMContentLoaded', function() {
+    window.__REACT_LOADED = true;
+    document.querySelectorAll('[data-component]').forEach(function(el) {
+      var name = el.getAttribute('data-component');
+      var script = document.createElement('script');
+      script.src = '{{ "/assets/js/components/" | relative_url }}' + name + '.js';
+      script.defer = true;
+      document.body.appendChild(script);
+    });
+  });
+</script>
+<noscript>
+  <p>Interactive components require JavaScript to be enabled.</p>
+</noscript>
+{% endunless %}

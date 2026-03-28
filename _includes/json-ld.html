@@ -1,0 +1,64 @@
+{% if page.layout == "post" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | jsonify }},
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ page.author | default: site.author.name }}"
+  },
+  "description": {{ page.excerpt | strip_html | strip_newlines | truncatewords: 50 | jsonify }},
+  "url": "{{ page.url | absolute_url }}"
+}
+</script>
+{% elsif page.layout == "landing" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": {{ page.title | jsonify }},
+  "description": {{ page.description | default: page.hero_subheadline | jsonify }},
+  "provider": {
+    "@type": "Organization",
+    "name": "Teresa Ristow"
+  }{% if page.price_display %},
+  "offers": {
+    "@type": "Offer",
+    "price": "{{ page.price_display }}",
+    "priceCurrency": "USD"
+  }{% endif %}
+}
+</script>
+{% elsif page.layout == "page" and page.url contains "about" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Teresa Ristow",
+  "jobTitle": "I/O Psychology Researcher and Educator",
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Virginia Tech"
+  },
+  "description": {{ site.author.bio | jsonify }},
+  "url": "{{ site.url }}{{ site.baseurl }}"
+}
+</script>
+{% elsif page.url == "/" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Teresa Ristow",
+  "jobTitle": "I/O Psychology Researcher and Educator",
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Virginia Tech"
+  },
+  "description": {{ site.author.bio | jsonify }},
+  "url": "{{ site.url }}{{ site.baseurl }}"
+}
+</script>
+{% endif %}

@@ -1,0 +1,139 @@
+- key: structured-hiring
+  title: "Structured Hiring That Works"
+  subtitle: "Evidence-based selection that reduces bias and improves quality of hire"
+  vertical: employer
+  price_display: "$197-297"
+  status: coming-soon
+  kajabi_url: ""
+  landing_page: /courses/structured-hiring/
+  description: "Learn to design and implement structured interview systems backed by decades of I/O psychology research. Reduce bias, improve prediction, and make defensible hiring decisions."
+  features:
+    - "15-component structured interview framework"
+    - "Adverse impact analysis tools"
+    - "Legal compliance checklists"
+
+- key: performance-management
+  title: "Performance Management That Actually Works"
+  subtitle: "Build PM systems that develop talent instead of checking boxes"
+  vertical: employer
+  price_display: "$197-297"
+  status: coming-soon
+  kajabi_url: ""
+  landing_page: /courses/performance-management/
+  description: "Move beyond annual reviews to continuous, evidence-based performance management. Includes BARS worksheets, 360 feedback design, and bias reduction strategies."
+  features:
+    - "BARS worksheet templates"
+    - "360 feedback system design"
+    - "Bias awareness training module"
+
+- key: training-that-transfers
+  title: "Training That Transfers"
+  subtitle: "Design training programs that actually change behavior on the job"
+  vertical: employer
+  price_display: "$197-297"
+  status: future
+  kajabi_url: ""
+  landing_page: ""
+  description: "From needs assessment to evaluation, build training programs grounded in learning science. Covers transfer of training, instructional design, and ROI measurement."
+  features:
+    - "Needs assessment frameworks"
+    - "Transfer of training strategies"
+    - "Kirkpatrick evaluation templates"
+
+- key: leadership-development
+  title: "Leadership Development by Design"
+  subtitle: "Evidence-based approaches to developing leaders at every level"
+  vertical: employer
+  price_display: "$397-697"
+  status: future
+  kajabi_url: ""
+  landing_page: ""
+  description: "Design leadership development programs using research on coaching, stress performance, and succession planning."
+  features:
+    - "Coaching methodology toolkit"
+    - "Stress-performance frameworks"
+    - "Succession planning templates"
+
+- key: ai-powered-hr
+  title: "AI-Powered HR"
+  subtitle: "Python, NLP, and analytics for evidence-based human resources"
+  vertical: employer
+  price_display: "$497-797"
+  status: coming-soon
+  kajabi_url: ""
+  landing_page: ""
+  description: "Teresa's flagship course integrating Python, NLP, and data science with HR practice. Includes hands-on analytics projects using real workplace data."
+  features:
+    - "Python for HR analytics (pandas, scikit-learn)"
+    - "NLP for job posting analysis"
+    - "Ethical AI frameworks for HR"
+
+- key: data-driven-dei
+  title: "Data-Driven DEI"
+  subtitle: "Measure inclusion, detect bias, and build equitable systems"
+  vertical: employer
+  price_display: "$497-997"
+  status: future
+  kajabi_url: ""
+  landing_page: ""
+  description: "Apply the AIRA framework to build measurably inclusive organizations. Covers algorithmic bias detection, inclusion analytics, and evidence-based DEI strategy."
+  features:
+    - "AIRA framework implementation"
+    - "Inclusion measurement tools"
+    - "Algorithmic bias detection methods"
+
+- key: workplace-psychology-essentials
+  title: "Workplace Psychology Essentials"
+  subtitle: "The science behind effective organizations, accessible to everyone"
+  vertical: employer
+  price_display: "$49-97"
+  status: coming-soon
+  kajabi_url: ""
+  landing_page: ""
+  description: "Gateway course covering the fundamentals of I/O psychology for people managers, small business owners, and HR newcomers."
+  features:
+    - "Core I/O psychology concepts"
+    - "Practical workplace applications"
+    - "Self-assessment tools"
+
+- key: science-of-getting-hired
+  title: "The Science of Getting Hired"
+  subtitle: "What I/O psychology research reveals about landing the right job"
+  vertical: job-seeker
+  price_display: "$97-197"
+  status: future
+  kajabi_url: ""
+  landing_page: ""
+  description: "Use research insights from the employer side to optimize your job search. Covers resume optimization, interview preparation, and assessment strategies."
+  features:
+    - "Research-backed resume strategies"
+    - "Interview preparation system"
+    - "Assessment center preparation"
+
+- key: choose-wisely
+  title: "Choose Wisely"
+  subtitle: "Evaluate employers like a psychologist before you accept"
+  vertical: job-seeker
+  price_display: "$97-197"
+  status: future
+  kajabi_url: ""
+  landing_page: ""
+  description: "Learn to evaluate potential employers using organizational psychology frameworks. Assess culture fit, job satisfaction predictors, and red flags."
+  features:
+    - "Employer evaluation framework"
+    - "Culture fit assessment tools"
+    - "Job satisfaction predictors"
+
+- key: hiring-insiders-toolkit
+  title: "The Hiring Insider's Toolkit"
+  subtitle: "Train-the-trainer for career coaches and outplacement professionals"
+  vertical: job-seeker
+  price_display: "$297-997"
+  status: future
+  kajabi_url: ""
+  landing_page: ""
+  description: "White-label curriculum for career coaches, university career centers, and outplacement firms. Includes licensing options for institutional use."
+  features:
+    - "White-label curriculum templates"
+    - "Train-the-trainer guides"
+    - "Institutional licensing framework"
