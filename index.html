@@ -3,37 +3,136 @@ layout: default
 title: Home
 ---
 
+<!-- Hero Section -->
 <section class="hero">
   <div class="hero__content">
-    <h1 class="hero__headline">Evidence-Based Workplace Psychology</h1>
-    <p class="hero__tagline">Research-backed courses and resources for HR professionals, people managers, and job seekers. Translating I/O psychology science into practical tools you can use today.</p>
-    <a href="{{ '/courses/' | relative_url }}" class="hero__cta btn btn--primary">Explore Courses</a>
+    <h1 class="hero__headline">
+      Empowering <span class="highlight--gold">people science,</span>
+      elevating how we
+      <span class="highlight--blush">understand work.</span>
+    </h1>
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+      <p class="hero__tagline" style="margin-bottom: 0; max-width: 320px;">I research how organizations listen to their people — through AI, feedback systems, and applied psychology. This blog is where I share what I'm learning.</p>
+      <div style="max-width: 320px;">
+        <p style="font-size: 0.8125rem; color: #4a4240; line-height: 1.7; margin-bottom: 0.75rem;">Each post makes complex methods approachable — visual frameworks, data walkthroughs, and thinking-out-loud.</p>
+        <a href="{{ '/about/' | relative_url }}" style="font-size: 0.8125rem; font-weight: 500; color: #2e1a2e; text-decoration: none;">Learn More &rarr;</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero__visual">
+    <span class="hero__visual-placeholder">[ featured image ]</span>
   </div>
 </section>
 
-<section class="section section--recent-posts">
-  <h2 class="section__heading">Recent Posts</h2>
-  <div class="post-grid">
+<!-- Divider Bar -->
+<div class="hero-divider">
+  <p class="hero-divider__text">People Scientist &amp; Applied AI Researcher</p>
+</div>
+<div class="hero-divider-line"></div>
+
+<!-- What I Write About / My Approach -->
+<section style="max-width: 1392px; margin: 0 auto; padding: 2.5rem 2rem;">
+  <div style="display: flex; flex-wrap: wrap; gap: 3rem;">
+    <div style="flex: 1; min-width: 280px;">
+      <h2 style="font-size: 1.625rem; font-weight: 300; color: #2e1a2e; margin-bottom: 0.75rem;">What I Write About</h2>
+      <p style="font-size: 0.8125rem; color: #4a4240; line-height: 1.7;">Practical, visual thinking on the topics I work in every day — how organizations listen to people, how AI can help, and the frameworks that bridge research and practice.</p>
+    </div>
+    <div style="width: 1px; background: rgba(46,26,46,0.15); align-self: stretch; display: none;" class="intro-divider"></div>
+    <div style="flex: 1; min-width: 280px;">
+      <h2 style="font-size: 1.625rem; font-weight: 300; color: #2e1a2e; margin-bottom: 0.75rem;">My Approach</h2>
+      <p style="font-size: 0.8125rem; color: #4a4240; line-height: 1.7;">I believe the best insights come from combining rigorous methods with clear visual storytelling. If I can't draw it, I probably don't understand it well enough yet.</p>
+    </div>
+  </div>
+</section>
+
+<!-- What You'll Find Here -->
+<section class="topic-grid">
+  <h2 class="topic-grid__heading">What You'll Find Here</h2>
+  <div class="topic-grid__list">
+    <div class="topic-card">
+      <div class="topic-card__icon topic-card__icon--blush">&#x1F916;</div>
+      <div class="topic-card__body">
+        <h3 class="topic-card__title">AI &amp; Evaluation</h3>
+        <p class="topic-card__desc">Evaluate conversational AI, frameworks for quality at scale.</p>
+        <span class="topic-card__tags">&#10003; CAPTUR &nbsp;&nbsp; &#10003; LLM-AS-JUDGE</span>
+      </div>
+    </div>
+    <div class="topic-card">
+      <div class="topic-card__icon topic-card__icon--gold">&#x1F4CA;</div>
+      <div class="topic-card__body">
+        <h3 class="topic-card__title">People Analytics</h3>
+        <p class="topic-card__desc">Employee feedback to insight — NLP pipelines, survey science.</p>
+        <span class="topic-card__tags">&#10003; NLP &nbsp;&nbsp; &#10003; FEEDBACK</span>
+      </div>
+    </div>
+    <div class="topic-card">
+      <div class="topic-card__icon topic-card__icon--sage">&#x1F4D0;</div>
+      <div class="topic-card__body">
+        <h3 class="topic-card__title">Teaching &amp; Methods</h3>
+        <p class="topic-card__desc">Visual explainers from grad courses on performance and org psych.</p>
+        <span class="topic-card__tags">&#10003; VISUAL GUIDES &nbsp;&nbsp; &#10003; I/O PSYCH</span>
+      </div>
+    </div>
+    <div class="topic-card">
+      <div class="topic-card__icon topic-card__icon--blush">&#x270D;&#xFE0F;</div>
+      <div class="topic-card__body">
+        <h3 class="topic-card__title">Thinking Out Loud</h3>
+        <p class="topic-card__desc">Musings, conference takeaways, reading notes, loose ideas.</p>
+        <span class="topic-card__tags">&#10003; ESSAYS &nbsp;&nbsp; &#10003; NOTES</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Marquee Ticker -->
+<div class="marquee-ticker">
+  <p class="marquee-ticker__text">NEW POSTS &nbsp; &#10022; &nbsp; NEW WORKSHOPS &nbsp; &#10022; &nbsp; MEASURE WHAT MATTERS &nbsp; &#10022; &nbsp; LISTEN AT SCALE &nbsp; &#10022; &nbsp; NEW POSTS &nbsp; &#10022; &nbsp; NEW WORKSHOPS &nbsp; &#10022; &nbsp; MEASURE WHAT MATTERS &nbsp; &#10022; &nbsp; LISTEN AT SCALE &nbsp; &#10022; &nbsp; NEW POSTS &nbsp; &#10022; &nbsp; NEW WORKSHOPS &nbsp; &#10022; &nbsp; MEASURE WHAT MATTERS &nbsp; &#10022; &nbsp; LISTEN AT SCALE</p>
+</div>
+
+<!-- Latest Posts (Dark Section) -->
+<section class="dark-posts">
+  <p class="dark-posts__label">Latest Writing</p>
+  <h2 class="dark-posts__heading">Latest Posts</h2>
+  <p class="dark-posts__sub">Frameworks, visual explainers, and thinking-out-loud.</p>
+  <div class="dark-posts__grid">
     {% for post in site.posts limit:3 %}
-      {% include post-card.html post=post %}
+    <article class="featured-card">
+      <div class="featured-card__image featured-card__image--{% cycle 'plum', 'olive', 'terracotta' %}">
+        {% if post.category %}
+        <span class="featured-card__image-text">{{ post.category | upcase | truncate: 5, "" }}</span>
+        {% endif %}
+        {% if forloop.first %}<span class="featured-card__badge">New</span>{% endif %}
+      </div>
+      <div class="featured-card__body">
+        <span class="featured-card__tag featured-card__tag--{% cycle 'plum', 'olive', 'terracotta' %}">{{ post.categories | join: " · " | upcase | default: "POST" }}</span>
+        <h3 class="featured-card__title">{{ post.title }}</h3>
+        {% if post.excerpt %}
+        <p class="featured-card__excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+        {% endif %}
+        <a href="{{ post.url | relative_url }}" class="featured-card__link">Read More &rarr;</a>
+      </div>
+    </article>
     {% endfor %}
   </div>
-  {% if site.posts.size > 3 %}
-    <p class="section__more"><a href="{{ '/blog/' | relative_url }}">View all posts</a></p>
-  {% endif %}
 </section>
 
-{% if site.data.courses %}
-<section class="section section--courses">
-  <h2 class="section__heading">Courses</h2>
-  <div class="course-grid">
-    {% for course in site.data.courses %}
-      {% unless course.status == "future" %}
-        {% include course-card.html course=course %}
-      {% endunless %}
+{% if site.posts.size > 3 %}
+<!-- Archive Strip -->
+<section class="archive-strip">
+  <p class="archive-strip__label">More from the Archive</p>
+  <div class="archive-strip__list">
+    {% for post in site.posts limit:3 offset:3 %}
+    <a href="{{ post.url | relative_url }}" class="archive-item">
+      <div>
+        <p class="archive-item__title">{{ post.title }}</p>
+        <span class="archive-item__tag archive-item__tag--{% cycle 'olive', 'terracotta', 'purple' %}">{{ post.categories | join: " · " | upcase | default: "POST" }}</span>
+      </div>
+      <span class="archive-item__arrow">&rarr;</span>
+    </a>
     {% endfor %}
   </div>
 </section>
 {% endif %}
 
-{% include cta-block.html headline="Ready to put research into practice?" description="Browse evidence-based courses designed for HR professionals, hiring managers, and job seekers." button_text="View All Courses" button_url="/courses/" style="primary" %}
+<!-- Bottom CTA -->
+{% include cta-block.html headline="Interested in learning more?" description="I teach workshops on AI evaluation, people analytics, and organizational psychology methods." button_text="View Upcoming Classes" button_url="/courses/" style="primary" %}

@@ -1,11 +1,9 @@
 main:
-  - title: Home
+  - title: Blog
     url: /
   - title: About
     url: /about/
-  - title: Courses
+  - title: Speaking
     url: /courses/
-  - title: Blog
-    url: /blog/
   - title: Contact
     url: /contact/
