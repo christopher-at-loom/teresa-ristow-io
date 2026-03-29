@@ -30,4 +30,6 @@ defaults:
 
 og_image: /assets/images/og-default.jpg
 
+cloudinary_base: "https://res.cloudinary.com/du8tl7x4m/image/upload"
+
 exclude: [README.md, LICENSE, CLAUDE.md, .claude, "*.code-workspace", "pages/CLAUDE.md", "assets/css/CLAUDE.md", "assets/js/CLAUDE.md"]
