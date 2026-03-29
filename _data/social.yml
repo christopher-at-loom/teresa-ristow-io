@@ -1,7 +1,3 @@
 - platform: linkedin
-  url: https://linkedin.com/in/teresaristow
+  url: https://www.linkedin.com/in/teresa-ristow-io/
   label: LinkedIn
-
-- platform: twitter
-  url: https://twitter.com/teresaristow
-  label: Twitter
