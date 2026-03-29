@@ -580,7 +580,7 @@ hr {
   color: var(--color-text-heading);
   line-height: 1.15;
   margin-bottom: var(--space-6);
-  max-width: 600px;
+  max-width: 680px;
 }
 
 .hero__headline .highlight--gold {
