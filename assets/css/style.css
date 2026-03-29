@@ -38,7 +38,7 @@
   --color-purple-muted: #7E7EB0;          /* muted lavender */
 
   /* Backgrounds */
-  --color-bg-page: #B8B8D8;              /* soft lavender (page canvas) */
+  --color-bg-page: #EBF5ED;              /* soft mint (page canvas) */
   --color-bg-card: #F5F0EA;              /* warm cream (primary surface) */
   --color-bg-sage: #C4CFA0;             /* sage green (card variant) */
   --color-bg-gold-tint: #C5C5E8;        /* soft periwinkle (card variant) */
@@ -46,9 +46,9 @@
   --color-white: #ffffff;
 
   /* Text */
-  --color-text-heading: #2A2A2A;         /* charcoal — 5.5:1 on lavender, 10:1 on cream */
-  --color-text-body: #3A3A3A;            /* dark gray — 4.7:1 on lavender, 9:1 on cream */
-  --color-text-muted: #555555;           /* medium gray — 3.8:1 on lavender, 5.5:1 on cream */
+  --color-text-heading: #2A2A2A;         /* charcoal — 12.5:1 on mint, 10:1 on cream */
+  --color-text-body: #3A3A3A;            /* dark gray — 9.8:1 on mint, 9:1 on cream */
+  --color-text-muted: #555555;           /* medium gray — 6.4:1 on mint, 5.5:1 on cream */
   --color-text-on-dark: #ffffff;
 
   /* Legacy mappings (for existing markup) */
