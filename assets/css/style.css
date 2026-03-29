@@ -1537,7 +1537,7 @@ hr {
 }
 
 .featured-card__image {
-  aspect-ratio: 4 / 1;
+  aspect-ratio: 8 / 1;
   overflow: hidden;
   display: flex;
   align-items: center;
