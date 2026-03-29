@@ -102,14 +102,14 @@ Browser requests URL
 | Key | Value | Purpose |
 |-----|-------|---------|
 | `url` | `https://christopher-at-loom.github.io` | Site origin |
-| `baseurl` | `/skills-github-pages` | Path prefix for all URLs |
+| `baseurl` | `/teresa-ristow-io` | Path prefix for all URLs |
 | `permalink` | `/blog/:year/:month/:title/` | Blog post URL structure |
 | `markdown` | `kramdown` | Markdown processor (rarely used; content is HTML) |
 
 ## Directory Structure
 
 ```
-skills-github-pages/
+teresa-ristow-io/
 ├── _config.yml          # Jekyll config
 ├── _layouts/            # 4 layouts (default, page, post, landing)
 ├── _includes/           # 11 includes (reusable components)

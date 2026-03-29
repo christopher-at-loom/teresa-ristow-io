@@ -2,6 +2,29 @@
 
 Welcome to your website! This guide covers everything you need to know to manage, update, and customize your site.
 
+## Table of Contents
+
+- [How This Site Works](#how-this-site-works)
+- [Quick Start](#quick-start)
+- [How to Create a New Blog Post](#how-to-create-a-new-blog-post)
+- [Adding Images to Blog Posts](#adding-images-to-blog-posts)
+- [How to Create a New Page](#how-to-create-a-new-page)
+- [How to Create a New Course Landing Page](#how-to-create-a-new-course-landing-page)
+- [Sections (Layouts)](#sections-layouts)
+- [Snippets (Includes)](#snippets-includes)
+- [How to Add a New Snippet](#how-to-add-a-new-snippet)
+- [Embedding Interactive Components](#embedding-interactive-components)
+- [Adding a Custom React Component](#adding-a-custom-react-component)
+- [Common Component Ideas for Blog Posts](#common-component-ideas-for-blog-posts)
+- [Updating Course Data](#updating-course-data)
+- [Updating Navigation](#updating-navigation)
+- [Styling](#styling)
+- [Custom Domain Setup](#custom-domain-setup)
+- [Troubleshooting](#troubleshooting)
+- [File Map](#file-map)
+
+---
+
 ## How This Site Works
 
 Your site is built with **GitHub Pages**, a free hosting service from GitHub. When you push changes to the repository, GitHub automatically rebuilds and publishes your site. There is no separate deploy step -- commit and push, and the site updates within a few minutes.

@@ -6,7 +6,7 @@
 2. Under "Source", select the branch to deploy (typically `main`)
 3. Save -- GitHub Actions will build and deploy on each push
 
-The site is currently deployed at: `https://christopher-at-loom.github.io/skills-github-pages/`
+The site is currently deployed at: `https://christopher-at-loom.github.io/teresa-ristow-io/`
 
 ## How Builds Work
 
@@ -38,14 +38,14 @@ Change both `url` and `baseurl`:
 ```yaml
 # BEFORE (GitHub Pages subdirectory)
 url: "https://christopher-at-loom.github.io"
-baseurl: "/skills-github-pages"
+baseurl: "/teresa-ristow-io"
 
 # AFTER (custom domain)
 url: "https://www.example.com"
 baseurl: ""
 ```
 
-**Both values must change.** If `baseurl` stays as `/skills-github-pages`, all asset and link paths will break.
+**Both values must change.** If `baseurl` stays as `/teresa-ristow-io`, all asset and link paths will break.
 
 ### Step 3: Configure DNS
 
@@ -93,7 +93,7 @@ Every push triggers a build. Failed builds show error details in the Actions tab
 
 ```bash
 bundle exec jekyll serve
-# Site available at http://localhost:4000/skills-github-pages/
+# Site available at http://localhost:4000/teresa-ristow-io/
 ```
 
 ## Google Search Console
@@ -162,7 +162,7 @@ This auto-updates when `url` or `baseurl` changes.
 
 ### baseurl issues after custom domain
 
-If you connect a custom domain but leave `baseurl: "/skills-github-pages"`, all links and assets will point to `https://www.example.com/skills-github-pages/...` which does not exist. Set `baseurl: ""` when using a custom domain.
+If you connect a custom domain but leave `baseurl: "/teresa-ristow-io"`, all links and assets will point to `https://www.example.com/teresa-ristow-io/...` which does not exist. Set `baseurl: ""` when using a custom domain.
 
 ### Build succeeds but page is wrong
 

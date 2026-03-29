@@ -28,7 +28,7 @@ This is the public-facing blog, course funnel, and landing page site for Dr. Ter
 ## Architecture Map
 
 ```
-skills-github-pages/
+teresa-ristow-io/
 ├── _config.yml                    # Jekyll configuration
 ├── _layouts/
 │   ├── default.html               # Master shell (all pages inherit)
