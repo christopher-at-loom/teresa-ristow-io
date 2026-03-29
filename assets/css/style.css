@@ -1228,7 +1228,7 @@ hr {
 
 .about-intro__photo img {
   width: 220px;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 2 / 3;
   border-radius: var(--radius-md);
   object-fit: cover;
 }
