@@ -1013,6 +1013,11 @@ hr {
    12. Landing Page Styles
    ========================================================================== */
 
+.landing-section {
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
 .landing__content {
   padding: var(--space-12) 0;
 }
