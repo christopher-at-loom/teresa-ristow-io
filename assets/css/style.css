@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Teresa Ristow - Global Stylesheet (Plum Palette)
+   Teresa Ristow - Global Stylesheet (Lavender + Terracotta Palette)
    ==========================================================================
    Table of Contents:
    1. Design Tokens (Custom Properties)
@@ -30,38 +30,38 @@
    ========================================================================== */
 
 :root {
-  /* Primary Palette */
-  --color-plum: #2e1a2e;
-  --color-gold: #c9a833;
-  --color-olive: #6b7a3a;
-  --color-terracotta: #c48a78;
-  --color-purple-muted: #9888a8;
+  /* Primary Palette (Lavender + Terracotta) */
+  --color-plum: #2A2A2A;                  /* charcoal (primary dark) */
+  --color-gold: #C44A2F;                  /* burnt terracotta (CTA accent) — 4.6:1 on white */
+  --color-olive: #5E6E30;                 /* deep sage (text-safe on cream, 5.8:1) */
+  --color-terracotta: #D98B6E;            /* muted coral/salmon */
+  --color-purple-muted: #7E7EB0;          /* muted lavender */
 
   /* Backgrounds */
-  --color-bg-page: #f5f0e2;
-  --color-bg-card: #faf7ee;
-  --color-bg-sage: #e8ecda;
-  --color-bg-gold-tint: #ede3b8;
-  --color-bg-blush: #f3e6e0;
+  --color-bg-page: #B8B8D8;              /* soft lavender (page canvas) */
+  --color-bg-card: #F5F0EA;              /* warm cream (primary surface) */
+  --color-bg-sage: #C4CFA0;             /* sage green (card variant) */
+  --color-bg-gold-tint: #C5C5E8;        /* soft periwinkle (card variant) */
+  --color-bg-blush: #EDCEBE;            /* light coral tint */
   --color-white: #ffffff;
 
   /* Text */
-  --color-text-heading: #1a1418;
-  --color-text-body: #4a4240;
-  --color-text-muted: #8a8280;
+  --color-text-heading: #2A2A2A;         /* charcoal — 5.5:1 on lavender, 10:1 on cream */
+  --color-text-body: #3A3A3A;            /* dark gray — 4.7:1 on lavender, 9:1 on cream */
+  --color-text-muted: #555555;           /* medium gray — 3.8:1 on lavender, 5.5:1 on cream */
   --color-text-on-dark: #ffffff;
 
   /* Legacy mappings (for existing markup) */
-  --color-primary: #2e1a2e;
-  --color-cta: #c9a833;
-  --color-cta-hover: #b89428;
-  --color-bg-warm: #faf7ee;
-  --color-bg-cool: #e8ecda;
-  --color-text: #4a4240;
-  --color-text-light: #8a8280;
-  --color-border: rgba(46, 26, 46, 0.18);
-  --color-border-strong: rgba(46, 26, 46, 0.3);
-  --color-black: #1a1418;
+  --color-primary: #2A2A2A;
+  --color-cta: #C44A2F;
+  --color-cta-hover: #A83D27;
+  --color-bg-warm: #F5F0EA;
+  --color-bg-cool: #C4CFA0;
+  --color-text: #3A3A3A;
+  --color-text-light: #555555;
+  --color-border: rgba(42, 42, 42, 0.18);
+  --color-border-strong: rgba(42, 42, 42, 0.3);
+  --color-black: #2A2A2A;
 
   /* Typography */
   --font-heading: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -106,9 +106,9 @@
   --radius-pill: 9999px;
 
   /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(46, 26, 46, 0.06);
-  --shadow-md: 0 4px 12px rgba(46, 26, 46, 0.08);
-  --shadow-lg: 0 8px 24px rgba(46, 26, 46, 0.1);
+  --shadow-sm: 0 1px 3px rgba(42, 42, 42, 0.06);
+  --shadow-md: 0 4px 12px rgba(42, 42, 42, 0.08);
+  --shadow-lg: 0 8px 24px rgba(42, 42, 42, 0.12);
 
   /* Transitions */
   --transition-fast: 150ms ease;
@@ -357,7 +357,7 @@ hr {
   z-index: 1000;
   padding: var(--space-2) var(--space-4);
   background-color: var(--color-gold);
-  color: var(--color-plum);
+  color: var(--color-white);
   font-size: var(--text-sm);
   font-weight: 600;
   border-radius: 0 0 var(--radius-sm) var(--radius-sm);
@@ -503,7 +503,7 @@ hr {
   display: none;
   padding: var(--space-2) var(--space-5);
   background-color: var(--color-gold);
-  color: var(--color-plum);
+  color: var(--color-white);
   font-size: 0.625rem;
   font-weight: 700;
   text-decoration: none;
@@ -513,7 +513,7 @@ hr {
 }
 
 .site-header__cta:hover {
-  background-color: #d4b23d;
+  background-color: var(--color-cta-hover);
 }
 
 /* ==========================================================================
@@ -585,7 +585,7 @@ hr {
 
 .hero__headline .highlight--gold {
   background-color: var(--color-gold);
-  color: var(--color-plum);
+  color: var(--color-white);
   padding: 0 var(--space-2);
   border-radius: var(--radius-sm);
   display: inline;
@@ -630,7 +630,7 @@ hr {
 .hero-divider__text {
   font-size: var(--text-xs);
   font-weight: 500;
-  color: var(--color-plum);
+  color: var(--color-white);
   letter-spacing: 1.2px;
   text-transform: uppercase;
   margin-bottom: 0;
@@ -911,7 +911,7 @@ hr {
 
 .cta-block--secondary {
   background-color: var(--color-bg-gold-tint);
-  border: 2px solid var(--color-gold);
+  border: 2px solid var(--color-purple-muted);
   color: var(--color-plum);
 }
 
@@ -923,7 +923,7 @@ hr {
 
 .cta-block__headline .highlight--gold {
   background-color: var(--color-gold);
-  color: var(--color-plum);
+  color: var(--color-white);
   padding: 0 var(--space-2);
   border-radius: var(--radius-sm);
 }
@@ -1100,7 +1100,7 @@ hr {
 
 .badge--coming-soon {
   background-color: var(--color-gold);
-  color: var(--color-plum);
+  color: var(--color-white);
 }
 
 .badge--future {
@@ -1158,20 +1158,20 @@ hr {
 }
 
 .btn--primary:hover {
-  background-color: #3d2a3d;
-  border-color: #3d2a3d;
+  background-color: #3A3A3A;
+  border-color: #3A3A3A;
   color: var(--color-text-on-dark);
 }
 
 .btn--secondary {
   background-color: var(--color-gold);
-  color: var(--color-plum);
+  color: var(--color-white);
   border-color: var(--color-gold);
 }
 
 .btn--secondary:hover {
-  background-color: #d4b23d;
-  border-color: #d4b23d;
+  background-color: var(--color-cta-hover);
+  border-color: var(--color-cta-hover);
 }
 
 .btn--outline {
@@ -1415,7 +1415,7 @@ hr {
 
 .archive-strip {
   background-color: var(--color-bg-gold-tint);
-  border: 2px solid var(--color-gold);
+  border: 2px solid var(--color-purple-muted);
   border-radius: var(--radius-lg);
   padding: var(--space-6);
   margin: var(--space-6) var(--space-4);
@@ -1565,7 +1565,7 @@ hr {
   top: var(--space-3);
   right: var(--space-3);
   background-color: var(--color-gold);
-  color: var(--color-plum);
+  color: var(--color-white);
   font-size: var(--text-2xs);
   font-weight: 700;
   padding: var(--space-1) var(--space-3);
