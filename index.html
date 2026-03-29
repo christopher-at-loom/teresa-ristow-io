@@ -103,14 +103,14 @@ title: Home
   <div class="dark-posts__grid">
     {% for post in site.posts limit:3 %}
     <article class="featured-card">
-      <div class="featured-card__image featured-card__image--{% cycle 'plum', 'olive', 'terracotta' %}">
+      <div class="featured-card__image featured-card__image--{% cycle 'olive', 'terracotta', 'plum' %}">
         {% if post.category %}
         <span class="featured-card__image-text">{{ post.category | upcase | truncate: 5, "" }}</span>
         {% endif %}
         {% if forloop.first %}<span class="featured-card__badge">New</span>{% endif %}
       </div>
       <div class="featured-card__body">
-        <span class="featured-card__tag featured-card__tag--{% cycle 'plum', 'olive', 'terracotta' %}">{{ post.categories | join: " · " | upcase | default: "POST" }}</span>
+        <span class="featured-card__tag featured-card__tag--{% cycle 'olive', 'terracotta', 'plum' %}">{{ post.categories | join: " · " | upcase | default: "POST" }}</span>
         <h3 class="featured-card__title">{{ post.title }}</h3>
         {% if post.excerpt %}
         <p class="featured-card__excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
