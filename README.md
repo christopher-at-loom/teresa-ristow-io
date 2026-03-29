@@ -307,6 +307,149 @@ The component JavaScript file must exist at `assets/js/components/[component-nam
 
 ---
 
+## Adding a Custom React Component
+
+If you have built a component in VS Code and want to add it to the site, here is the full walkthrough. Claude can guide you through each step if you get stuck.
+
+### The rules
+
+- **No build step.** The site does not use npm, Webpack, or any bundler. Your component is a plain `.js` file that runs directly in the browser.
+- **No JSX.** Write `React.createElement(...)` instead of `<div>`. Claude can convert JSX to createElement for you.
+- **Naming matters.** The filename must match the `data-component` attribute exactly. A file named `score-comparison.js` is embedded with `data-component="score-comparison"`.
+
+### Step 1: Save your file in the right place
+
+Your component file goes in:
+```
+assets/js/components/your-component-name.js
+```
+
+Use kebab-case for the filename (lowercase, words separated by hyphens).
+
+### Step 2: Wrap it in the required pattern
+
+Every component needs this wrapper structure. If your file does not already follow this pattern, restructure it to match:
+
+```javascript
+(function() {
+  'use strict';
+
+  // Guard: skip if React is not loaded
+  if (typeof React === 'undefined' || typeof ReactDOM === 'undefined') {
+    console.warn('React not loaded. Skipping your-component-name.');
+    return;
+  }
+
+  // Your component
+  function YourComponent(props) {
+    var title = props.title || 'Default Title';
+
+    return React.createElement('div', { className: 'your-component' },
+      React.createElement('h3', null, title)
+      // ... more elements here
+    );
+  }
+
+  // Mount into all matching elements on the page
+  document.querySelectorAll('[data-component="your-component-name"]').forEach(function(el) {
+    var props = {};
+    try {
+      props = JSON.parse(el.getAttribute('data-props') || '{}');
+    } catch(e) {
+      console.warn('Invalid data-props JSON:', e);
+    }
+    var root = ReactDOM.createRoot(el);
+    root.render(React.createElement(YourComponent, props));
+  });
+})();
+```
+
+**Key parts:**
+- The `if (typeof React === 'undefined')` guard prevents errors on pages where React is not loaded
+- `data-component="your-component-name"` in the querySelector must match your filename (without `.js`)
+- Props come from the `data-props` JSON attribute in the HTML
+
+### Step 3: Embed it in a blog post
+
+In your post's HTML, add two things:
+
+```html
+<!-- Load React (only needed once per post, place before any components) -->
+{% include react-mount.html %}
+
+<!-- Your component mount point -->
+<div data-component="your-component-name" data-props='{"title": "My Data"}'></div>
+```
+
+You can place multiple components in the same post. The `{% include react-mount.html %}` line only needs to appear once.
+
+### Step 4: Commit and push
+
+Save your files, commit in GitHub Desktop, and push. The component will be live once the site rebuilds (1-3 minutes).
+
+### Quick checklist
+
+- [ ] File is saved at `assets/js/components/your-name.js`
+- [ ] File uses the `(function() { ... })();` wrapper
+- [ ] File has the React/ReactDOM guard at the top
+- [ ] querySelector string matches the filename
+- [ ] Blog post includes `{% include react-mount.html %}` before the component div
+- [ ] `data-component` value matches the filename (without `.js`)
+- [ ] `data-props` is valid JSON (use single quotes around the attribute, double quotes inside)
+
+---
+
+## Common Component Ideas for Blog Posts
+
+These are types of interactive elements that work well in I/O Psychology content. You do not need to build these from scratch. Describe what you want to Claude, and it can generate the component file for you.
+
+### Bar Chart
+Compare values across categories. Good for showing validity coefficients, survey results, or score distributions.
+```html
+<div data-component="sample-chart" data-props='{"label": "Interview Validity by Method", "values": [35, 51, 62, 78]}'></div>
+```
+*Already available as `sample-chart.js`.*
+
+### Before/After Comparison
+Show two states side by side -- for example, unstructured vs. structured interview outcomes, or pre-training vs. post-training metrics. Pass labels and values for each side.
+```html
+<div data-component="before-after" data-props='{"before": {"label": "Unstructured", "values": [42, 38, 55]}, "after": {"label": "Structured", "values": [78, 82, 71]}}'></div>
+```
+
+### Stat Counter
+Display a few key numbers prominently -- effect sizes, sample sizes, percentages. Numbers can animate on scroll to draw attention.
+```html
+<div data-component="stat-counter" data-props='{"stats": [{"value": 81, "unit": "%", "label": "Improvement in prediction"}, {"value": 2.4, "unit": "x", "label": "Reduction in bias"}]}'></div>
+```
+
+### Likert Scale / Survey Visualization
+Show response distributions for survey items. Common in training evaluation, job satisfaction research, and employee engagement data.
+```html
+<div data-component="likert-scale" data-props='{"question": "Training improved my confidence in interviewing", "responses": {"Strongly Disagree": 2, "Disagree": 5, "Neutral": 12, "Agree": 34, "Strongly Agree": 47}}'></div>
+```
+
+### Process / Timeline Diagram
+Walk through a multi-step process -- selection pipeline stages, training program phases, or research methodology steps.
+```html
+<div data-component="process-steps" data-props='{"steps": [{"title": "Job Analysis", "description": "Define the role requirements"}, {"title": "Criteria Development", "description": "Build the scoring rubric"}, {"title": "Structured Interview", "description": "Consistent questions for every candidate"}]}'></div>
+```
+
+### Comparison Table (Interactive)
+Let readers toggle or highlight rows across methods, tools, or approaches. More engaging than a static HTML table for dense comparisons.
+```html
+<div data-component="comparison-table" data-props='{"columns": ["Method", "Validity", "Cost", "Training Required"], "rows": [["Structured Interview", "High", "Low", "Moderate"], ["Assessment Center", "High", "High", "Extensive"], ["Unstructured Interview", "Low", "Low", "None"]]}'></div>
+```
+
+### Scatter Plot
+Show relationships between two variables -- predictor vs. outcome, pre-test vs. post-test, or any correlation you want to illustrate.
+```html
+<div data-component="scatter-plot" data-props='{"xLabel": "Conscientiousness Score", "yLabel": "Job Performance", "points": [[3.2, 4.1], [4.5, 4.8], [2.1, 2.9], [3.8, 3.7], [4.9, 4.6]]}'></div>
+```
+
+**Note:** These components (except `sample-chart`) do not exist yet. When you are ready to use one, describe what you need to Claude and it will generate the `.js` file for you, following the pattern above.
+
+---
+
 ## Updating Course Data
 
 All course information lives in `_data/courses.yml`. Each course has these fields:

@@ -30,4 +30,4 @@ defaults:
 
 og_image: /assets/images/og-default.jpg
 
-exclude: [README.md, LICENSE, CLAUDE.md, .claude, "*.code-workspace"]
+exclude: [README.md, LICENSE, CLAUDE.md, .claude, "*.code-workspace", "pages/CLAUDE.md", "assets/css/CLAUDE.md", "assets/js/CLAUDE.md"]

@@ -71,93 +71,20 @@ skills-github-pages/
 
 ## Layout Inheritance
 
-```
-default.html
-├── page.html      (static pages: about, blog listing, courses, contact)
-├── post.html      (blog posts in _posts/)
-└── landing.html   (course landing/sales pages)
-```
+All layouts extend `default.html`. See `_layouts/CLAUDE.md` for the full inheritance chain, include inventory, and image rules.
 
-All layouts extend default. Default provides: doctype, `<html lang="en">`, head include, header include, `<main id="main-content">`, footer include, json-ld include, main.js script.
+## Subdirectory Context Routing
 
-## Include (Snippet) Inventory
+Agents working in a subdirectory should read that directory's CLAUDE.md first:
 
-| Include | Parameters | Usage |
-|---------|-----------|-------|
-| head.html | (none) | Auto-included by default layout |
-| header.html | (none) | Auto-included by default layout |
-| nav.html | (none) | Included by header.html |
-| footer.html | (none) | Auto-included by default layout |
-| social-links.html | (none) | Included by footer.html |
-| json-ld.html | (none) | Auto-included by default layout; renders conditionally by page.layout |
-| cta-block.html | headline, description, button_text, button_url, style (primary/secondary) | `{% include cta-block.html headline="..." button_text="..." button_url="/courses/" style="primary" %}` |
-| course-card.html | course (object) | `{% include course-card.html course=course %}` |
-| post-card.html | post (object) | `{% include post-card.html post=post %}` |
-| react-mount.html | (none) | `{% include react-mount.html %}` -- add before [data-component] divs |
-| responsive-image.html | landscape, portrait, alt, loading (default: lazy), css_class, width_l, height_l, width_p, height_p | `{% include responsive-image.html landscape="/assets/images/hero-landscape.jpg" portrait="/assets/images/hero-portrait.jpg" alt="Description" loading="eager" %}` |
-| analytics.html | (none) | Placeholder for tracking code |
-
-## CSS Architecture
-
-Single file: `assets/css/style.css`
-
-- Design tokens in `:root` custom properties
-- Color palette: #2D3E50 (primary/text), #A65971 (CTA buttons only -- not body text), #F9F6F3/#F5F7F6 (backgrounds)
-- BEM-influenced naming: `.block__element--modifier`
-- Mobile-first responsive (breakpoints: 600px, 768px, 1024px)
-- Section markers as CSS comments
-- Scaling strategy: split to SASS @import if file exceeds ~1500 lines
-
-## Responsive Image Rules
-
-When generating HTML that includes images, follow these rules:
-
-1. **Hero and header images** use the `responsive-image.html` include with both `landscape` and `portrait` versions for art-directed mobile/desktop switching
-2. **Inline blog images** (charts, diagrams, screenshots) use a plain `<img>` tag -- no `<picture>` needed
-3. **File naming:** `{context}-{slug}-{orientation}.{ext}` where context is `hero`/`post`/`course`/`page`, orientation is `landscape` (16:9, ~1200x675) or `portrait` (3:4, ~600x800). Omit orientation suffix for inline-only images.
-4. **Loading:** `eager` for above-fold images, `lazy` (default) for everything else
-5. **Alt text is mandatory** -- describe the content, not the filename
-6. **Width and height attributes are mandatory** on all `<img>` tags to prevent layout shift
-7. **Only use `<picture>`** (via the include) when genuinely art-directing different crops for mobile vs desktop
-
-### Post hero images via frontmatter
-
-```yaml
-image_landscape: /assets/images/post-my-slug-landscape.jpg
-image_portrait: /assets/images/post-my-slug-portrait.jpg
-image_alt: "Descriptive alt text"
-```
-
-All three fields are optional. The post layout renders a `<picture>` element with art direction when both orientations are provided.
-
-### Inline images in blog posts
-
-```html
-<img
-  src="{{ '/assets/images/post-slug-chart.png' | relative_url }}"
-  alt="Bar chart comparing interview validity across methods"
-  width="720"
-  height="405"
-  loading="lazy">
-```
-
-## JS Architecture
-
-- `assets/js/main.js` -- Global behavior (mobile nav toggle, escape key handler)
-- `assets/js/components/*.js` -- React components mounted via [data-component] pattern
-- React loaded via CDN only on pages that use `{% include react-mount.html %}`
-- Components use `React.createElement` (no JSX, no build step)
-
-## Data File Schemas
-
-### courses.yml
-Fields: key, title, subtitle, vertical (employer/job-seeker), price_display, status (active/coming-soon/future), kajabi_url, landing_page, description, features (array)
-
-### navigation.yml
-Fields: main (array of {title, url})
-
-### social.yml
-Fields: platform, url, label
+| Directory | CLAUDE.md Scope |
+|-----------|----------------|
+| `_layouts/` | Layout inheritance, includes inventory, Liquid patterns (also covers `_includes/`) |
+| `_posts/` | Blog post authoring, frontmatter, images, React embedding |
+| `_data/` | YAML schemas, enum values, SSOT rules |
+| `pages/` | Static pages + landing pages, permalink conventions |
+| `assets/css/` | Design tokens, BEM naming, responsive breakpoints |
+| `assets/js/` | Global JS + React component pattern, CDN strategy |
 
 ## Naming Conventions
 
@@ -202,6 +129,49 @@ Fields: platform, url, label
 | React CDN (unpkg) availability | If down, bundle locally in assets/js/vendor/ |
 | Single CSS file growth | Section markers + threshold (~1500 lines) to split via SASS @import |
 | #A65971 contrast | Restricted to buttons with white text (passes WCAG AA); never for body text |
+
+## Skill & Plugin Routing
+
+### Universal Rules
+
+1. **Superpowers for all code work:** Use `superpowers:brainstorming` before creating features or modifying behavior. Use `superpowers:writing-plans` before multi-step implementations. Use `superpowers:verification-before-completion` before claiming work is done.
+2. **GSD for project-scoped work:** Use `/gsd:plan-phase` or `/gsd:discuss-phase` for planning. Use `/gsd:execute-phase` for execution. Use `/gsd:debug` for systematic debugging.
+3. **Code review is mandatory:** Run `/code-review` (or dispatch a `superpowers:requesting-code-review` subagent) over ALL code additions or changes before presenting output to the user. No exceptions.
+
+### Local Skills (`.claude/skills/`)
+
+| Skill | Invoke When | Trigger Examples |
+|-------|-------------|-----------------|
+| `code-review` | Any code change before output | Editing HTML/CSS/JS/Liquid, adding components, modifying layouts |
+| `frontend-design` | Building or restyling UI | New pages, visual redesigns, component creation |
+| `perf` | Performance-related work | Asset optimization, Core Web Vitals, page load speed, image/font loading |
+| `ui-ux-pro-max` | Design decisions | Color palette, typography, layout style, accessibility audit, landing page design |
+
+### Superpowers & GSD (System Plugins)
+
+| Plugin | Invoke When |
+|--------|-------------|
+| `superpowers:brainstorming` | Before any creative/feature work -- new pages, components, visual changes |
+| `superpowers:writing-plans` | Before multi-file or multi-step implementation |
+| `superpowers:executing-plans` | When executing a written plan |
+| `superpowers:systematic-debugging` | Any bug, test failure, or unexpected behavior |
+| `superpowers:verification-before-completion` | Before claiming work is complete |
+| `superpowers:requesting-code-review` | After completing code changes (supplements mandatory `/code-review`) |
+| `/gsd:plan-phase`, `/gsd:discuss-phase` | Planning scoped work |
+| `/gsd:execute-phase` | Executing planned phases |
+| `/gsd:debug` | Persistent debugging across context resets |
+
+### Routing by Task Type
+
+| Task | Skills to Invoke (in order) |
+|------|-----------------------------|
+| New page or landing page | `superpowers:brainstorming` → `ui-ux-pro-max` → `frontend-design` → implement → `code-review` |
+| New blog post with components | `superpowers:brainstorming` → implement → `code-review` |
+| CSS changes (tokens, layout, responsive) | `ui-ux-pro-max` → `perf` → implement → `code-review` |
+| New React component | `superpowers:brainstorming` → implement → `code-review` → `perf` |
+| Performance optimization | `perf` → implement → `code-review` → `superpowers:verification-before-completion` |
+| Bug fix | `superpowers:systematic-debugging` → implement → `code-review` |
+| Multi-file feature | `superpowers:writing-plans` → `superpowers:executing-plans` → `code-review` |
 
 ## Documentation Routing
 
