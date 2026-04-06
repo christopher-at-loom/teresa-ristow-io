@@ -486,6 +486,10 @@ Public-facing blog, course funnel, and landing page site for Dr. Teresa Ristow's
 | humanizer2 | \| Remove signs of AI-generated writing using multi-pass semantic entropy restoration. Detects 39 patterns across 6 categories via a three-pass compartmentalized audit: Structural Extraction, Lexical Substitution, Syntactic Asymmetry. Context-routes to category reference files per pass. | `.claude/skills/humanizer2/SKILL.md` |
 | perf | "Page load performance specialist: Core Web Vitals, asset optimization, and critical rendering path" | `.claude/skills/perf/SKILL.md` |
 | ui-ux-pro-max | "UI/UX design intelligence. 67 styles, 96 palettes, 57 font pairings, 25 charts, 13 stacks (React, Next.js, Vue, Svelte, SwiftUI, React Native, Flutter, Tailwind, shadcn/ui). Actions: plan, build, create, design, implement, review, fix, improve, optimize, enhance, refactor, check UI/UX code. Projects: website, landing page, dashboard, admin panel, e-commerce, SaaS, portfolio, blog, mobile app, .html, .tsx, .vue, .svelte. Elements: button, modal, navbar, sidebar, card, table, form, chart. Styles: glassmorphism, claymorphism, minimalism, brutalism, neumorphism, bento grid, dark mode, responsive, skeuomorphism, flat design. Topics: color palette, accessibility, animation, layout, typography, font pairing, spacing, hover, shadow, gradient. Integrations: shadcn/ui MCP for component search and examples." | `.claude/skills/ui-ux-pro-max/SKILL.md` |
+| clarify | UX copy, labels, error messages, microcopy improvement | `.claude/skills/clarify/SKILL.md` |
+| critique | Design evaluation with scoring, heuristics audit, persona testing | `.claude/skills/critique/SKILL.md` |
+| polish | Final quality pass — alignment, spacing, consistency, micro-details | `.claude/skills/polish/SKILL.md` |
+| typeset | Typography hierarchy, font sizing, weight, readability | `.claude/skills/typeset/SKILL.md` |
 <!-- GSD:skills-end -->
 
 <!-- GSD:workflow-start source:GSD defaults -->
